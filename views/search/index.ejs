@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") %> 
+
+<div class="search-container">
+  <h1 class="blue">Patient Tracker</h1>
+<h2 class="red">Search Patient by Phone Number</h2>
+
+  <!--  Search Box -->
+  <form action="/patients/search" method="GET">
+    <label for="number"><b>Enter Number:</b></label>
+    <input
+      type="text"
+      name="phone"
+      id="number"
+      placeholder="Enter phone number"
+      required
+    />
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<div>
+<form action="/visits/today" method="get">
+  <button class="btn btn-dark">Today Inbound List</button>
+</form>
+</div>
+
+<div class="center-buttons">
+<form action="/analytics/daily-intake" method="get">
+  <button class="btn btn-dark">Analytics Panel</button>
+</form>
+
+<form action="/analytics/flow-efficiency" method="get">
+  <button class="btn btn-dark">Flow-efficiency</button>
+</form>
+</div>

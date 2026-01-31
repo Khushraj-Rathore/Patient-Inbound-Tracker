@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+
+  <h2 class="text-center mb-4">
+     Daily Intake Analytics
+  </h2>
+
+  <div class="row text-center">
+
+    <!-- Total Arrivals -->
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6 class="text-muted">Today's Arrivals</h6>
+          <h3><%= totalArrivals %></h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Walk-ins -->
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6 class="text-muted">Walk-ins</h6>
+          <h3><%= walkIns %></h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appointments -->
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6 class="text-muted">Appointments</h6>
+          <h3><%= appointments %></h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat Rate -->
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6 class="text-muted">Repeat Patient Rate</h6>
+          <h3><%= repeatRate %>%</h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back Button -->
+  <div class="text-center mt-4">
+    <a href="/" class="btn btn-outline-secondary">
+        Back to Dashboard
+    </a>
+  </div>
+
+</div>

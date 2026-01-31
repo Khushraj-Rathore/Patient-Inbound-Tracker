@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") %>
+<div class="visits-container">
+<h1 class="blue visits-heading">Today’s Inbound Visits</h1>
+
+<% if (visits.length > 0) { %>
+  <table class="table table-dark table-striped-columns">
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>Patient Name</th>
+        <th>Phone</th>
+        <th>Visit Type</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Check-in Time</th>
+        <th>Action</th>   
+      </tr>
+    </thead>
+
+    <tbody>
+      <% visits.forEach((visit, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= visit.patientID.firstname %> <%= visit.patientID.lastname %></td>
+          <td><%= visit.patientID.phones[0].original %></td>
+          <td><%= visit.visitType %></td>
+          <td><%= visit.reason %></td>
+          <td><%= visit.status %></td>
+          <td><%= visit.checkInAt ? visit.checkInAt.toLocaleTimeString() : "N/A" %></td>
+          <td>
+            <form action="/visits/<%= visit._id %>/status" method="GET">    <!-- /inbound/:id/status-->
+              <button type="submit" class="btn btn-warning btn-sm">
+                Update Status
+              </button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h1 class="red">No visits for today</h1>
+<% } %>
+</div>

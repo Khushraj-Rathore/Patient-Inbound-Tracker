@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+
+  <h2>Flow Efficiency</h2>
+  <hr>
+
+  <div class="mb-2">
+    <span>Total Completed Visits (Last 7 Days):</span>
+    <span><%= totalCompleted %></span>
+  </div>
+
+  <div class="mb-2">
+    <span>Visits Completed Within 30 Minutes:</span>
+    <span><%= within30Min %></span>
+  </div>
+
+  <div class="mb-2">
+    <span>Flow Efficiency (%):</span>
+    <span><%= efficiency %>%</span>
+  </div>
+
+  <% if (totalCompleted === 0) { %>
+    <p style="color: red;">
+      No completed visits found in the last 7 days.
+    </p>
+  <% } %>
+
+</div>

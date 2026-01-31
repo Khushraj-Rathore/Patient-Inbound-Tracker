@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+
+<% if (patientsData.length > 0) { %>
+
+  <% for (let item of patientsData) { %>
+    <div class="patient-card">
+
+      <h3 class="green">Patient Details</h3>
+      <p>
+        <b>Name:</b> <%= item.patient.firstname %> <%= item.patient.lastname %>
+      </p>
+      <p><b>Phone:</b> <%= item.patient.phones[0].original %></p>
+      <p><b>DOB:</b> <%= item.patient.dob.toDateString() %></p>
+
+    <br>
+        <!-- <CHECK-IN BUTTON  -->
+  <form action="/visits/new" method="GET">
+    <input type="hidden" name="patientID" value="<%= item.patient._id %>">
+    <button type="submit" class="checkin-btn btn btn-dark">
+      Check In
+    </button>
+  </form>
+<br>
+      <h4>Last 5 Visits</h4>
+
+      <% if (item.visits.length > 0) { %>
+        <ul class="visits">
+          <% for (let visit of item.visits) { %>
+            <li>
+              visitDate: <%= visit.visitDate.toDateString() %> |
+              visitType: <%= visit.visitType %> |
+              Status: <%= visit.status %> |
+              Reason: <%= visit.reason %>
+            </li>
+          <% } %>
+        </ul>
+      <% } else { %>
+        <p class="green"><b>No visits found.</b></p>
+      <% } %>
+
+    </div>
+  <% } %>
+
+<% } else { %>
+   <div class="no-patients-container">
+  <h1 class="green"><p class="no-patients-text orange">No patient found for number <b><%= phone %></b></p></h1>
+  <br>
+  <form action="/patients" method="get">
+    <button class="create-btn btn-dark">Create Patient</button>
+  </form>
+  </div>
+<% } %>

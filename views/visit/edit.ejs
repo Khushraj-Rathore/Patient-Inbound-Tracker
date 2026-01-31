@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h1 class="green">Edit</h1>
+    <form method="POST" action="/visits/<%= visit._id %>/status?_method=PUT" >
+        <input type="hidden" name="version" value="<%= visit.__v %>">
+        <div class="mb-3">
+        <label for="name" class="form-label"><b>Name:</b></label>
+        <input  value="<%= visit.patientID.firstname %> <%= visit.patientID.lastname  %>" class="form-control " readonly>
+    </div>
+        <div class="mb-3">
+        <label for="D.O.B" class="form-label"><b>D.O.B:</b></label>
+         <input value="<%= visit.patientID.dob.toDateString() %>" class="form-control" readonly >
+    </div>
+        <div class="mb-3 col-md-4">
+        <label for="email" class="form-label"><b>Email:</b></label>
+        <input value="<%= visit.patientID.email %>" class="form-control" readonly>
+    </div>
+        <div class="mb-3 col-md-4">
+        <label for="status" class="form-label"><b>Status:</b></label>
+        <select name="visit[status]" class="form-control" required>
+          <option value="checked-in" <%= visit.status === "checked-in" ? "selected" : "" %>>Checked-in</option>
+          <option value="with_provider" <%= visit.status === "with_provider" ? "selected" : "" %>>With Provider</option>
+          <option value="completed" <%= visit.status === "completed" ? "selected" : "" %>>Completed</option>
+          <option value="no-show" <%= visit.status === "no-show" ? "selected" : "" %>>No-show</option>
+        </select>
+
+    </div>
+       
+        <button class="btn btn-dark">Edit</button>
+    </form>
+    </div>
+
