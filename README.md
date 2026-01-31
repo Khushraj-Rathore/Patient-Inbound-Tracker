@@ -103,24 +103,7 @@ npm install
 MONGO_URI=mongodb://127.0.0.1:27017/patienttracker
 PORT=8080
 
-Scope Limitations / Pending Work
 
-The current project has the following pending enhancements:
-
-Advanced analytics dashboards
-
-UI/UX improvements
-
-Deployment configuration
-
-High-level concurrency optimization
-
-Notes:
-MongoDB is used instead of SQL for simplicity
-
-node_modules folder is intentionally excluded from version control
-
-Focus is on correctness of flow and backend logic rather than production-ready features
 
 
 
