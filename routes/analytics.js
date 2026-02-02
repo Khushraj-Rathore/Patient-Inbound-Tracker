@@ -33,7 +33,7 @@ router.get("/daily-intake",async(req, res)=>{
     //  Repeat patient rate
     const patientIds = todaysVisits.map(v => v.patientId);
 
-    const repeatPatients = await Visit.distinct("patientId",{patientId: {$in: patientIds},visitDate: {$lt: startOfDay}});
+    const repeatPatients = await Visit.distinct("patientID",{patientId: {$in: patientIds},visitDate: {$lt: startOfDay}});
 
     let repeatRate = 0;
     if (totalArrivals > 0){
